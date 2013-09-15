@@ -1,0 +1,72 @@
+
+<form class="form-horizontal validitem" method="POST" action="{{ @BASE }}/i/create">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Create new bookmark</legend>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="title">Title</label>
+  <div class="controls">
+    <input id="title" name="title" placeholder="title" class="input-xlarge" type="text">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="url">URL</label>
+  <div class="controls">
+    <input id="url" name="url" placeholder="url" class="input-xlarge" type="text">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="note">Note</label>
+  <div class="controls">                     
+    <textarea id="note" name="note"></textarea>
+  </div>
+</div>
+
+
+<check if="{{ @cs }}">
+ 
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="category">Category</label>
+  <div class="controls">
+    <select id="cid" name="cid" class="input-xlarge">
+	  <option value="0">select category</option>
+	<repeat group="{{ @cs }}" value="{{ @c }}">
+      <option value="{{ @c.tok }}">{{ @c.name }}</option>
+	</repeat>
+
+    </select>
+  </div>
+</div>
+
+</check>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="tags">Tags</label>
+  <div class="controls">
+    <input id="tags" name="tags" placeholder="tags separated by commas" class="input-xlarge" type="text">
+    
+  </div>
+</div>
+
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="singlebutton"></label>
+  <div class="controls">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit">Create</button>
+  </div>
+</div>
+
+</fieldset>
+</form>

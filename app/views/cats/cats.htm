@@ -1,0 +1,30 @@
+
+<div class="container">
+
+  <div class="list-group">
+    <a href="{{ (@BASE=='')?'/':@BASE }}" class="list-group-item{{ (@catmenu=='')?' active':'' }}">
+      All bookmarks
+      <span class="badge">{{ @cgall }}</span>
+    </a>
+
+<check if="{{ @cgs }}">
+<true>
+	<repeat group="{{ @cgs }}" value="{{ @c }}">
+
+		<a href="{{ @BASE.'/c/'. @c.tok .'/'. @c.url }}" class="list-group-item{{ (@catmenu==@c.tok)?' active':'' }}">{{ trim(@c.cat) }}
+		  <span class="badge">{{ trim(@c.itemcount) }}</span>
+		</a>
+
+	</repeat>
+</true>
+<false>
+
+</false>
+</check>
+
+ 
+  </div>
+  
+</div>
+
+ 

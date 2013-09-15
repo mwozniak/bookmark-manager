@@ -1,0 +1,70 @@
+<check if="{{ @page>=0 && @pagecount>1 }}">
+	<check if="{{ @pagecount<13 }}">
+	
+	<true>
+
+		<ul class="pagination">
+			<check if="{{ @page>0 }}"><li><a href="{{@BASE}}/{{ @pagemodule }}/page/{{ @page}}">&laquo;</a></li></check>
+
+			<li<check if="{{ @page==0 }}"> class="active"</check>><a href="{{@BASE}}/{{ @pagemodule }}/page/1">1</a></li>
+
+			<loop from="{{ @i=1 }}" to="{{ @i<@pagecount }}" step="{{ @i++ }}">
+				<li<check if="{{ @page==@i }}"> class="active"</check>><a href="{{@BASE}}/{{ @pagemodule }}/page/{{ @i+1 }}">{{ @i+1 }}</a></li>
+			</loop>
+
+			<check if="{{ @page<(@pagecount-1)}}"><li><a href="{{@BASE}}/{{ @pagemodule }}/page/{{ @page+2 }}">&raquo;</a></li></check>
+		</ul>
+
+	</true>
+
+
+	<false>
+
+		<ul class="pagination">
+			<check if="{{ @page>0 }}"><li><a href="{{@BASE}}/{{ @pagemodule }}/page/{{ @page}}">&laquo;</a></li></check>
+
+			<li<check if="{{ @page==0 }}"> class="active"</check>><a href="{{@BASE}}/{{ @pagemodule }}/page/1">1</a></li>
+
+			
+			<check if="{{ @page<5 || @page>(@pagecount-6) }}">
+			
+				<true>
+				
+					<loop from="{{ @i=1 }}" to="{{ @i<(@pagecount-1) }}" step="{{ @i++ }}">
+
+						<check if="{{  @i<6 || @i>(@pagecount-7)  }}">
+						<li<check if="{{ @page==@i }}"> class="active"</check>><a href="{{@BASE}}/{{ @pagemodule }}/page/{{ @i+1 }}">{{ @i+1 }}</a></li>
+						</check>	
+						
+						<check if="{{  @i==5 }}">
+						<li class="active"><a>...</a></li>
+						</check>
+
+					</loop>
+				
+				</true>
+				
+				<false>
+	 
+				<li<check if="{{ @page==1 }}"> class="active"</check>><a href="{{@BASE}}/{{ @pagemodule }}/page/2">2</a></li>
+				<li class="active"><a>...</a></li>
+
+					<loop from="{{ @i=(@page-2) }}" to="{{ @i<=(@page+2) }}" step="{{ @i++ }}">
+						<li<check if="{{ @page==@i }}"> class="active"</check>><a href="{{@BASE}}/{{ @pagemodule }}/page/{{ @i+1 }}">{{ @i+1 }}</a></li>
+					</loop>
+
+				<li class="active"><a>...</a></li>
+				<li<check if="{{ @page==(@pagecount-2) }}"> class="active"</check>><a href="{{@BASE}}/{{ @pagemodule }}/page/{{ @pagecount-1 }}">{{ @pagecount-1 }}</a></li>
+
+				</false>
+
+			</check>
+
+			<li<check if="{{ @page==(@pagecount-1) }}"> class="active"</check>><a href="{{@BASE}}/{{ @pagemodule }}/page/{{ @pagecount }}">{{ @pagecount }}</a></li>
+
+			<check if="{{ @page<(@pagecount-1)}}"><li><a href="{{@BASE}}/{{ @pagemodule }}/page/{{ @page+2 }}">&raquo;</a></li></check>
+		</ul>
+
+	</false>
+	</check>
+</check>

@@ -1,0 +1,113 @@
+
+
+<h1>{{ @label}}</h1>
+
+
+
+<div class="row">
+
+
+	<div class="col col-lg-6"><!-- start col 1 -->
+
+
+    <repeat group="{{ @items }}" value="{{ @item }}" counter="{{ @ctr }}">
+
+ 
+ 
+
+	<check if="{{ @ctr%2 }}">
+	<true>
+
+
+ 
+	<div class="simgr">
+
+	<a href="{{ htmlspecialchars(trim(@item.url)) }}">
+	<img src="{{ @BASE.'/ui/img/favicon.png' }}" class="favi" alt="" /></a>
+	<a href="{{ htmlspecialchars(trim(@item.url)) }}" class="gridh">{{  trim(@item.title) }}</a>
+	<a href="{{ @BASE.'/i/update/'. @item.tok }}" class="edititem"><i class="icon-edit"></i></a> 
+	<a class="edititem deleteitem" id="itemtok_{{ @item.tok }}"><i class="icon-remove"></i></a>
+
+			<check if="{{  trim(@item.url)!='' }}">
+				<div class="urlitem"><a href="{{ htmlspecialchars(trim(@item.url)) }}">{{  trim(@item.url)  }}</a> <a href="{{ htmlspecialchars(trim(@item.url)) }}" target="_blank" class="external-link"><i class="icon-external-link"></i></a></div>
+			</check>
+			<check if="{{  trim(@item.note)!='' }}">
+				<div class="dscitem">{{  trim(@item.note)  }}</div>
+			</check>
+
+			<check if="{{  isset( @tgsarray[@item.tok] ) }}">
+			<div class="taggrid">
+					<repeat group="{{ @tgsarray[@item.tok] }}" value="{{ @t }}">
+						<a href="{{ @BASE.'/t/'. @t.tok .'/'. @t.url }}" class="label label-tag">{{ @t.label }}</a>
+					</repeat>
+			</div>
+			</check>
+
+	</div>
+ 
+	</true>
+	</check> 
+
+ 
+ 
+    </repeat>
+ 
+	</div><!-- end col 1 -->
+
+
+	<div class="col col-lg-6"><!-- start col 2 -->
+
+ <repeat group="{{ @items }}" value="{{ @item }}" counter="{{ @ctr }}">
+
+ 
+
+ 
+
+
+	<check if="{{ @ctr%2 }}">
+	<false>
+
+ 
+ 
+	<div class="simgr">
+
+	<a href="{{ htmlspecialchars(trim(@item.url)) }}">
+	<img src="{{ @BASE.'/ui/img/favicon.png' }}" class="favi" alt="" /></a>
+	<a href="{{ htmlspecialchars(trim(@item.url)) }}" class="gridh">{{ trim(@item.title) }}</a> 
+	<a href="{{ @BASE.'/i/update/'. @item.tok }}" class="edititem"><i class="icon-edit"></i></a> 
+	<a class="edititem deleteitem" id="itemtok_{{ @item.tok }}"><i class="icon-remove"></i></a>
+
+			<check if="{{  trim(@item.url)!='' }}">
+				<div class="urlitem"><a href="{{ htmlspecialchars(trim(@item.url)) }}">{{  trim(@item.url)  }}</a> <a href="{{ htmlspecialchars(trim(@item.url)) }}" target="_blank" class="external-link"><i class="icon-external-link"></i></a></div>
+			</check>
+			<check if="{{  trim(@item.note)!='' }}">
+				<div class="dscitem">{{ trim(@item.note) }}</div>
+			</check>
+			<check if="{{  isset( @tgsarray[@item.tok] ) }}">
+			<div class="taggrid">
+					<repeat group="{{ @tgsarray[@item.tok] }}" value="{{ @t }}">
+						<a href="{{ @BASE.'/t/'. @t.tok .'/'. @t.url }}" class="label label-tag">{{ @t.label }}</a>
+					</repeat>
+			</div>
+			</check>
+
+	</div>
+ 
+	</false>
+	</check> 
+
+ 
+
+ 
+    </repeat>
+ 
+	<check if="{{ count(@items)==0 }}">
+		<p><i>no items</i></p>
+		</check>
+ 
+	</div><!-- end col 2 -->
+
+
+</div>
+ 
+ 

@@ -1,0 +1,25 @@
+    <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a>
+    <a class="navbar-brand" href="<check if="{{ @BASE==''}}"><true>/</true><false>{{ @BASE }}</false>">Bookmark Manager</a>
+    <div class="nav-collapse collapse">
+      <ul class="nav navbar-nav">
+      
+        <li{{ (@topmenu=='')?' class="active"':'' }}><a href="{{ (@BASE=='')?'/':@BASE }}">Home</a></li>
+        <li{{ (@topmenu=='i')?' class="active"':'' }}><a href="{{ @BASE }}/i/create">New</a></li>
+        <li{{ (@topmenu=='c')?' class="active"':'' }}><a href="{{ @BASE }}/c">Categories</a></li>
+        <li{{ (@topmenu=='t')?' class="active"':'' }}><a href="{{ @BASE }}/t">Tags</a></li>
+	</ul>
+
+
+		<form action="{{ @BASE }}/search" method="post">
+            <input class="search-query col col-lg-5 topmfix" placeholder="Search" name="query" value="{{ @q }}" type="text">
+          </form>
+
+      <ul class="nv pull-right">
+        <li><a class="topmfix btn btn-primary" href="{{ @BASE }}/i/create">Create new</a></li>
+      </ul>      
+
+    </div><!--/.nav-collapse -->

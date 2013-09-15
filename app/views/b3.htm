@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>{{ @title }}</title>
+
+<link href="{{ @BASE }}/ui/css/bootstrap3.css" rel="stylesheet">
+<link href="{{ @BASE }}/ui/css/main.css" rel="stylesheet">
+<link href="{{ @BASE }}/ui/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="{{ @BASE }}/ui/js/html5shiv.js"></script>
+  <script src="{{ @BASE }}/ui/js/respond/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body data-twttr-rendered="true"> 
+
+<!-- Static navbar -->
+<div class="navbar navbar-static-top">
+  <div class="container">
+  <include href="{{ @tmenu }}" />
+  </div>
+</div>
+
+<div class="container">
+
+
+<div class="row">
+  <div class="col col-lg-3"><include href="{{ @cats }}" /></div>
+  <div class="col col-lg-9">
+
+	<!-- Message -->
+	<div id="message">
+		<check if="{{ @message!='' }}">
+			<div class="alert {{ @messagetype }}">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  {{ @message }}
+			</div>
+		</check>
+	</div>
+
+  <!-- include blocks -->
+  <include href="{{ @breadcrumbs }}" />  
+  <include href="{{ @view }}" />
+  <include href="{{ @pagination }}" />  
+
+  </div>
+ 
+  <div class="col col-lg-12 footer"><hr/>© 2013 Bookmark Manager</div>
+  
+</div>
+
+
+</div> <!-- /container -->
+
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ @BASE }}/ui/js/jquery.js"></script>
+<script src="{{ @BASE }}/ui/js/bootstrap3.js"></script>
+<script src="{{ @BASE }}/ui/js/widgets.js"></script>
+<script src="{{ @BASE }}/ui/js/holder.js"></script>
+<script src="{{ @BASE }}/ui/js/main.js"></script>
+
+<script type="text/javascript">
+var base = '{{ @BASE }}';
+</script> 
+
+
+<!-- Analytics
+================================================== -->
+<script>
+ 
+</script>
+  
+
+</body></html> 

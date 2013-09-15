@@ -1,0 +1,15 @@
+<ul class="breadcrumb">
+    <li><a href="{{ (@BASE=='')?'/':@BASE }}">Home</a></li>
+	<check if="{{ @breadcrumb }}">
+		<repeat group="{{ @breadcrumb }}" value="{{ @b }}">
+			<check if="{{ @b.url }}"> 
+				<true>
+					<li><a href="{{ @BASE . @b.url }}">{{ @b.name }}</a></li>
+				</true>
+				<false>
+					<li class="active">{{ @b.name }}</li>
+				</false>
+			</check>
+		</repeat>
+	</check>
+</ul>

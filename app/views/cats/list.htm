@@ -1,0 +1,85 @@
+
+ 
+<table width="200px" cellpadding="5" class="table table-hover table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">Category</th>
+        <exclude><th scope="col" class="editdel">Node</th></exclude>
+        <th scope="col" class="editdel">Options</th>
+
+ 
+    </tr>
+    </thead>
+
+    <tbody>
+    <repeat group="{{ @categoires}}" value="{{ @cat }}">
+        <tr>
+            <td><a href="{{ @BASE.'/c/'. @cat.tok .'/'. @cat.url }}">{{ trim(@cat.name) }}</a></td>
+            <exclude><td>{{ trim(@cat.node) }}</td></exclude>
+            <td><a href="{{ @BASE.'/c/update/'. @cat.tok }}">edit</a> <a class="deletecat" id="cattok_{{ @cat.tok }}">delete</a></td>
+        </tr>
+    </repeat>
+    	<check if="{{ count(@categoires)==0 }}">
+		<tr><td>no categories</td><td></td></tr>
+		</check>
+    </tbody>
+</table>
+ 
+ 
+ 
+<br/>
+ 
+
+<!-- Add new category -->
+
+
+<form class="form-horizontal validcat" method="POST" action="{{ @BASE }}/c/create">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Create new category</legend>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="title">Category</label>
+  <div class="controls">
+    <input id="name" name="name" placeholder="category name" class="input-xlarge" type="text">
+    
+  </div>
+ 
+<exclude>
+<check if="{{ @cs }}">
+ 
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="category">Category node</label>
+  <div class="controls">
+    <select id="node" name="node" class="input-xlarge">
+	  <option value="0">select parent</option>
+	<repeat group="{{ @cs }}" value="{{ @c }}">
+      <option value="{{ @c.tok }}">{{ @c.name }}</option>
+	</repeat>
+
+    </select>
+  </div>
+</div>
+
+</check>
+</exclude>
+
+
+
+
+
+
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="singlebutton"></label>
+  <div class="controls">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit">Create category</button>
+  </div>
+</div>
+
+</fieldset>
+</form>

@@ -1,0 +1,39 @@
+
+<form class="form-horizontal validtag" method="POST" action="{{ @BASE }}/t/update">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Update tag</legend>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="title">Tag title</label>
+  <div class="controls">
+    <input id="title" name="title" placeholder="tag name" class="input-xlarge" type="text" value="{{ @POST.title }}">
+    
+  </div>
+ 
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="title">Tag label</label>
+  <div class="controls">
+    <input id="label" name="label" placeholder="tag label" class="input-xlarge" type="text" value="{{ @POST.label }}">
+    
+  </div>
+
+ 
+
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="singlebutton"></label>
+  <div class="controls">
+    <input type="hidden" name="tok" value="{{ @POST.tok }}" />
+    <input type="hidden" name="update" value="update" />
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit">Update</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
