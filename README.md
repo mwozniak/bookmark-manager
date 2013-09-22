@@ -5,7 +5,7 @@ To see it in action, go to http://bm.webapps.bz
 
 ## Description
 
-BM is a bookmark manager which helps user organize and manage bookmarks and notes  in a simple and effective way. Every bookmark can be be categorized in selected category and be tagged.
+Bookmark Manager helps user organize and manage bookmarks and notes  in a simple and effective way. Every bookmark can be be categorized in selected category and be tagged.
 It is possible to explore bookmarks by browsing tags or categories. Every tag or category can be edited or deleted. There is also the possibility to search for bookmarks. The app is fully configurable, options can be set in a config file.
  
 
@@ -16,27 +16,28 @@ BM is based on PHP F3 Framework using MVC (Model View Controller) model. Fat Fre
 
 ## Requirements
 
-* PHP 5.3
+* PHP 5.3+
 * MySQL
-* F3 Framework (https://github.com/bcosca/fatfree)
-* JQuery
+* F3 Framework 3.0.9 (https://github.com/bcosca/fatfree)
+* JQuery 2.0
 * Bootstrap 3
-* Font Awesome
+* Font Awesome 3.2.1
 
 
 
-## FEATURES
+## Features
 
 * every bookmark, tag or category can be created, edited&saved or deleted
 * pagination of bookmarks, tags and categories
-* search by any string
+* search and find any text string within any bookmark field
 * responsive design
-* content is retrived form https://github.com/dypsilon/frontend-dev-bookmarks 
+* content is retrieved from https://github.com/dypsilon/frontend-dev-bookmarks 
 
 
 
 ## Routes
 
+Routing is definied in `config/routes.ini` file
  
  ```
 [routes]
@@ -153,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `tags` (
 
  ```
 
-
+### Views
 
  ```sql
 
@@ -224,16 +225,16 @@ CREATE VIEW taglist AS
 Configuration is in `config/config.ini` file
 
 
-| Variable     | Value       | Description                             |
-| ------------ |:-----------:| ----------------------------------------|
-| db_name      | dbname      |   name of database                      |
-| db_user      | user_name   |   user                                  |
-| db_pass      | secret      |   password                              |
-| itemlimit    | 12          |   number of bookmarks on main page      |
-| onetaglimit  | 12          |   number of bookmarks on tag page       |
-| alltagslimit | 30          |   number of tags page with all tags     |
-| catlimit     | 12          |   number of bookmarks on category page  |
-| searchlimit  | 20          |   number of bookmarks in search results |
+| Variable     | Value       | Description                                               |
+| ------------ |:-----------:| ----------------------------------------------------------|
+| db_name      | dbname      |   name of database                                        |
+| db_user      | user_name   |   user name                                               |
+| db_pass      | secret      |   password                                                |
+| itemlimit    | 12          |   number of paginated bookmarks on main page              |
+| onetaglimit  | 12          |   number of paginated bookmarks on tag page               |
+| alltagslimit | 30          |   number of paginated tags page with list of all tags     |
+| catlimit     | 12          |   number of paginated bookmarks on category page          |
+| searchlimit  | 20          |   number of paginated bookmarks in search results         |
 
 
 
@@ -251,11 +252,11 @@ Configuration is in `config/config.ini` file
  
 ## Licence
 
-MIT Licence.
+MIT Licence. Enjoy.
 
 (c) Michal Wozniak
 
->The MIT Licence {{{
+>The MIT Licence  
 >
 >Permission is hereby granted, free of charge, to any person obtaining a copy
 >of this software and associated documentation files (the "Software"), to deal
@@ -275,5 +276,5 @@ MIT Licence.
 >OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 >THE SOFTWARE.
 >
->}}}
+> 
 
