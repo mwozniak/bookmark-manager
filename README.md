@@ -1,7 +1,7 @@
 
 # Bookmark Manager
 
-To see it in action, go to http://bm.webapps.bz
+The Bookmark Manager has been completely rewritten in Laravel, go to http://www.eduhub.io
 
 ## Description
 
